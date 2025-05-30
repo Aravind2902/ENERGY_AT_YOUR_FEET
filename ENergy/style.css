@@ -1,0 +1,219 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f5f5f5 url('img/bg.jpg') no-repeat center center/cover;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px 20px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .navbar a {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar a:hover {
+    background-color: rgba(255, 204, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  /* Page Headings */
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 40px 0 20px;
+    color: #222;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 30px 0;
+    color: #444;
+  }
+  
+  /* Footer */
+  .footer {
+    background: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    margin-top: 50px;
+    backdrop-filter: blur(8px);
+  }
+  
+  /* Chart Container */
+  .chart-container {
+    max-width: 600px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  
+  /* Applications Page */
+  .application-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .app-card {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .app-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Mobile Friendly */
+  @media screen and (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .application-grid {
+      padding: 20px;
+    }
+  }
+  /* Analytics Page Styling */
+.analytics-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 60vh;
+  }
+  
+  .chart-box {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  
+/* Download PDF Button Style */
+button.print-button {
+    width: 80px; /* Reduced size of the button */
+    height: 80px; /* Reduced size of the button */
+    position: fixed;  /* Fix the button in the top-right corner */
+    top: 20px;  /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    padding: 0;
+    border: 0;
+    background: transparent;
+    z-index: 9999; /* Make sure it's on top of other elements */
+  }
+  
+  span.print-icon, span.print-icon::before, span.print-icon::after, button.print-button:hover .print-icon::after {
+    box-sizing: border-box;
+    background-color: #e3dbdb; /* Set icon background color for visibility */
+  }
+  
+  span.print-icon {
+    position: relative;
+    display: inline-block;  
+    padding: 0;
+    margin-top: 25%;  /* Adjust to center the smaller icon */
+    width: 50%;  /* Reduced width */
+    height: 30%;  /* Reduced height */
+    background: #333; /* Set icon background to dark for contrast */
+    border-radius: 20% 20% 0 0;
+  }
+  
+  span.print-icon::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 12%;
+    right: 12%;
+    height: 80%;  /* Reduced height of the top part */
+    transition: height .2s .15s;
+  }
+  
+  span.print-icon::after {
+    content: "";
+    position: absolute;
+    top: 55%;
+    left: 12%;
+    right: 12%;
+    height: 0%;
+    background: #fff; /* White color for the lines */
+    background-repeat: no-repeat;
+    background-size: 70% 90%;
+    background-position: center;
+    background-image: linear-gradient(
+      to top,
+      #fff 0, #fff 14%,
+      #333 14%, #333 28%,
+      #fff 28%, #fff 42%,
+      #333 42%, #333 56%,
+      #fff 56%, #fff 70%,
+      #333 70%, #333 84%,
+      #fff 84%, #fff 100%
+    );
+    transition: height .2s, border-width 0s .2s, width 0s .2s;
+  }
+  
+  button.print-button:hover {
+    cursor: pointer;
+  }
+  
+  button.print-button:hover .print-icon::before {
+    height:0px;
+    transition: height .2s;
+  }
+  
+  button.print-button:hover .print-icon::after {
+    height:120%;
+    transition: height .2s .15s, border-width 0s .16s;
+  }
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+    }
+  }
+  
+  
